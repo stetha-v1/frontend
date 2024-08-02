@@ -1,42 +1,49 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+a {
+    text-decoration: none;
+    color: #5946f8;
+    white-space: nowrap;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    background-color: #f4f8fe;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Track */
+::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+    display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2d9bf0; /* Color of the scrollbar handle */
 }
 
-.card {
-  padding: 2em;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2d9bf0; /* Color of the scrollbar handle on hover */
 }
 
-.read-the-docs {
-  color: #888;
+/* Track */
+::-moz-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+/* Handle */
+::-moz-scrollbar-thumb {
+    background: #2d9bf0; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-moz-scrollbar-thumb:hover {
+    background: #2d9bf0; /* Color of the scrollbar handle on hover */
 }

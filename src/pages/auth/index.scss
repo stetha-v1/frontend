@@ -1,0 +1,53 @@
+.auth__page {
+  height: 100vh;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    color: #4c4c4c;
+    font-size: 0.9rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    width: 100%;
+
+    .auth__header {
+      margin: 1em 0;
+
+      span {
+        color: #abb7c7;
+        margin: .3em 0;
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+        h1 {
+          color: #abb7c7;
+          font-size: 1.6rem;
+        }
+
+        .arrow__icon {
+          font-size: 1.6rem;
+          color: #abb7c7;
+        }
+      }
+    }
+
+    .usernames__container {
+      display: flex;
+      gap: 0.6em;
+      align-items: center;
+    }
+  }
+}

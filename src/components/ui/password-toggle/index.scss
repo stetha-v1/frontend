@@ -1,0 +1,32 @@
+.password-toggle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0.6em;
+  background-color: #f4f4f4;
+  border: 1px solid #d9d9da;
+  border-radius: 0.4em;
+  font-size: 1rem;
+  width: 100%;
+
+  input {
+    flex: 1;
+    border: none;
+    &:focus {
+      border: none;
+    }
+  }
+
+  .toggle__btn {
+    flex: 0.05;
+    border: none;
+    outline: none;
+    padding: 0.19em;
+    background-color: transparent;
+    cursor: pointer;
+    .password__icon {
+      font-size: 2rem;
+      color: #acacac;
+    }
+  }
+}
