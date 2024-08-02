@@ -1,8 +1,10 @@
 import "./index.scss";
 import { Form } from "react-router-dom";
 import { Button, Input, PasswordToggle } from "../../components";
-import { ActionFunction, Link } from "react-router-dom";
+import { ActionFunction, Link, useNavigation } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
+import { CgSpinner } from "react-icons/cg";
+
 
 export const action: ActionFunction = async ({ request: Request }) => {
   const user_input = await Request.formData();
@@ -11,6 +13,7 @@ export const action: ActionFunction = async ({ request: Request }) => {
 };
 
 export const RegisterPage = () => {
+  const loging_state = useNavigation();
   return (
     <div className="auth__page">
       <Form className="form" method="POST" replace>
@@ -28,7 +31,16 @@ export const RegisterPage = () => {
         <Input placeholder="email@email.com" name="email" type="email" />
         <PasswordToggle placeholder="password" name="password" />
         <PasswordToggle placeholder="confirm password" name="re_password" />
-        <Button text="Sign up" />
+        <Button
+          text={
+            loging_state.state === "submitting" ? "creating account..." : "Sign up"
+          }
+          icon={
+            loging_state.state === "submitting" ? (
+              <CgSpinner className="spinner__icon" />
+            ) : null
+          }
+        />
         <span>
           have an account?<Link to="/auth/login">sign in</Link>
         </span>
