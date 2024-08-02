@@ -1,13 +1,17 @@
-.button{
-    background-color: #26c7ed;
-    padding: .8em;
-    color: white;
-    width: 100%;
-    border: none;
-    font-weight: bold;
-    font-size: 1em;
-    outline: none;
-    border-radius: .3em;
-    cursor: pointer;
-    margin-top: 1em;
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  justify-content: center;
+  background-color: #26c7ed;
+  padding: 0.8em;
+  color: white;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  font-size: 1em;
+  outline: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  margin-top: 1em;
 }
