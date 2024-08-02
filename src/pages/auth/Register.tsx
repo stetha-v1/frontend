@@ -5,7 +5,6 @@ import { ActionFunction, Link, useNavigation } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
 import { CgSpinner } from "react-icons/cg";
 
-
 export const action: ActionFunction = async ({ request: Request }) => {
   const user_input = await Request.formData();
   console.log(user_input);
@@ -19,8 +18,8 @@ export const RegisterPage = () => {
       <Form className="form" method="POST" replace>
         <div className="auth__header">
           <div className="text">
-            <h1>Sign up</h1>
             <VscAccount className="arrow__icon" />
+            <h1>Sign up</h1>
           </div>
           <span>Enter your details to create an account!</span>
         </div>
@@ -33,7 +32,9 @@ export const RegisterPage = () => {
         <PasswordToggle placeholder="confirm password" name="re_password" />
         <Button
           text={
-            loging_state.state === "submitting" ? "creating account..." : "Sign up"
+            loging_state.state === "submitting"
+              ? "creating account..."
+              : "Sign up"
           }
           icon={
             loging_state.state === "submitting" ? (
