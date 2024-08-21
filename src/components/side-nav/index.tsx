@@ -18,58 +18,58 @@ const top_navigations: ISideNavigations[] = [
   {
     id: 2,
     text: "Doctors",
-    path: "/",
+    path: "/doctors",
     icon: <FaUserDoctor className="nav__icon" />,
   },
   {
     id: 3,
     text: "Prescriptions",
-    path: "/",
+    path: "/prescriptions",
     icon: <GiMedicines className="nav__icon" />,
   },
   {
     id: 4,
     text: "Health Insights",
-    path: "/",
+    path: "/health-insights",
     icon: <GiHealthNormal className="nav__icon" />,
   },
   {
     id: 5,
     text: "Community",
-    path: "/",
+    path: "/community",
     icon: <IoIosPeople className="nav__icon" />,
   },
   {
     id: 6,
     text: "Alerts",
-    path: "/",
+    path: "/alerts",
     icon: <MdAddAlert className="nav__icon" />,
   },
   {
     id: 7,
     text: "Account",
-    path: "/",
+    path: "/account",
     icon: <IoPersonSharp className="nav__icon" />,
   },
 ];
 
-const bottom__navigations: ISideNavigations[] = [
+const bottom_navigations: ISideNavigations[] = [
   {
     id: 1,
     text: "Mental Health",
-    path: "/",
+    path: "/mental-health",
     icon: <FaHeart className="nav__icon" />,
   },
   {
     id: 2,
     text: "Help",
-    path: "/",
+    path: "/help",
     icon: <MdHelp className="nav__icon" />,
   },
   {
     id: 3,
     text: "Feedback",
-    path: "/",
+    path: "/feedback",
     icon: <MdFeedback className="nav__icon" />,
   },
 ];
@@ -82,17 +82,24 @@ export const SideNavigations = () => {
           <img src={logo} alt="logo" />
           <h1>Stetha</h1>
         </NavLink>
-
         {top_navigations.map((item) => (
-          <NavLink key={item.id} to={item.path}>
+          <NavLink
+            key={item.id}
+            to={item.path}
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
             <span>{item?.icon}</span>
             <span>{item.text}</span>
           </NavLink>
         ))}
       </div>
       <div className="bottom__navs">
-        {bottom__navigations.map((item) => (
-          <NavLink key={item.id} to={item.path}>
+        {bottom_navigations.map((item) => (
+          <NavLink
+            key={item.id}
+            to={item.path}
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
             <span>{item?.icon}</span>
             <span>{item.text}</span>
           </NavLink>

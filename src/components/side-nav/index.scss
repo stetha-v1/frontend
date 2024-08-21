@@ -8,28 +8,40 @@
   a {
     display: flex;
     align-items: center;
-    gap: 0.6em;
+    gap: 0.4em;
     font-size: 0.85em;
     color: #172b4d;
+    padding: 0.5em;
+
+    &:hover {
+      border: 1px solid #26c7ed;
+      border-radius: 0.6em;
+      color: #26c7ed;
+    }
   }
 
   .top__navs,
   .bottom__navs {
     display: flex;
-    gap: 1em;
+    gap: 0.4em;
     flex-direction: column;
-    margin-left: 0.9em;
     .nav__icon {
       font-size: 1.2rem;
     }
   }
 
   .top__navs {
+    .active-link {
+      border: 1px solid #26c7ed;
+      border-radius: 0.6em;
+      color: #26c7ed;
+    }
+
     .logo__container {
       display: flex;
       align-items: center;
-      gap: 0.6em;
-      margin-bottom: 2em;
+      gap: 0.4em;
+      margin-bottom: 1.5em;
 
       img {
         height: 8vh;
