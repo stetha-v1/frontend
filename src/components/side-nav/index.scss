@@ -46,6 +46,11 @@
       gap: 0.4em;
       margin-bottom: 1.5em;
 
+      &:hover {
+        border: none;
+        color: black;
+      }
+
       img {
         height: 8vh;
       }
