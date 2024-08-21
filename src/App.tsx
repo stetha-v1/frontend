@@ -6,22 +6,23 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {
-  HomePage,
+  /* HomePage, */
   LoginPage,
   LoginAction,
   RegisterPage,
   RegisterAction,
+  AppointmentsPage,
 } from "./pages";
-
 import { RootDashBoardLayout } from "./layouts";
+import { PageNotFound } from "./components";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/"  element={<RootDashBoardLayout />}>
-        <Route index element={<HomePage />} />
+      <Route path="/" element={<RootDashBoardLayout />}>
+        <Route index element={<AppointmentsPage />} />
       </Route>
-      <Route path="*" element={<h1>404 - Not Found</h1>} />
+      <Route path="*" element={<PageNotFound />} />
       <Route path="/auth/login" element={<LoginPage />} action={LoginAction} />
       <Route
         path="/auth/register"
