@@ -1,0 +1,1 @@
+export { RootDashBoardLayout } from "./dashboard";

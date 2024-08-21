@@ -14,7 +14,7 @@
 
 a {
   text-decoration: none;
-  color: #5946f8;
+  color: inherit;
   white-space: nowrap;
 }
 body {

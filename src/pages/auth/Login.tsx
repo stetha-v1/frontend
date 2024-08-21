@@ -1,14 +1,19 @@
 import "./index.scss";
 import { Form } from "react-router-dom";
 import { Button, Input, PasswordToggle } from "../../components";
-import { ActionFunction, Link, useNavigation } from "react-router-dom";
+import {
+  ActionFunction,
+  Link,
+  useNavigation,
+  redirect,
+} from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 import { CgSpinner } from "react-icons/cg";
 
 export const action: ActionFunction = async ({ request: Request }) => {
   const user_input = await Request.formData();
   console.log(user_input);
-  return null;
+  return redirect("/");
 };
 
 export const LoginPage = () => {
