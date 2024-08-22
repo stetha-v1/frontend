@@ -6,14 +6,14 @@ export const AppointmentsResheduledPage = () => {
     {
       date: "2024-08-22",
       time: "10:00 AM",
-      doctor: "Dr. Smith",
-      location: "Room 101",
+      doctor: "Dr. David",
+      location: "Room 181",
     },
     {
       date: "2024-08-23",
       time: "11:30 AM",
-      doctor: "Dr. Johnson",
-      location: "Room 202",
+      doctor: "Dr. Griffin",
+      location: "Room 238",
     },
   ];
 
