@@ -2,26 +2,29 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./index.scss";
 
-export const SearchDoctor = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+interface SearchDoctorProps {
+  onSearch: (query: string) => void;
+}
 
-  const handleSearch = (event: React.FormEvent) => {
+export const SearchDoctor: React.FC<SearchDoctorProps> = ({ onSearch }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(`Searching for: ${searchQuery}`);
-    //  actual search logic later
+    onSearch(inputValue);
   };
 
   return (
     <div className="search__doctor">
       <h3>Find Doctor</h3>
       <p>We have 1,000+ online doctors available now.</p>
-      <form className="search__input" onSubmit={handleSearch}>
+      <form className="search__input" onSubmit={handleSubmit}>
         <FaSearch className="icon" />
         <input
           type="text"
           placeholder="Search for a doctor"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
         />
       </form>
     </div>
