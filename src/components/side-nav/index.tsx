@@ -12,7 +12,7 @@ const top_navigations: ISideNavigations[] = [
   {
     id: 1,
     text: "Appointments",
-    path: "/",
+    path: "/appointments",
     icon: <FaCalendarCheck className="nav__icon" />,
   },
   {
