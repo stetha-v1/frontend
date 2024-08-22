@@ -16,67 +16,71 @@ const doctors: Doctor[] = [
     name: "Dr. Emily Johnson",
     specialty: "Cardiologist",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-suF-HNAYPoZM6k-sO69b531jmN0-GiFOQ&s",
+      "https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png",
   },
   {
     id: 2,
     name: "Dr. Michael Williams",
     specialty: "Dermatologist",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-suF-HNAYPoZM6k-sO69b531jmN0-GiFOQ&s",
+      "https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png",
   },
   {
     id: 3,
     name: "Dr. Olivia Brown",
     specialty: "Pediatrician",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-suF-HNAYPoZM6k-sO69b531jmN0-GiFOQ&s",
+      "https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png",
+  },
+  {
+    id: 3,
+    name: "Dr. Olipia Brown",
+    specialty: "Pediatrician",
+    image:
+      "https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png",
   },
 ];
 
 export const DoctorsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchedDoctor, setSearchedDoctor] = useState<Doctor | null>(null);
+  const [searchedDoctors, setSearchedDoctors] = useState<Doctor[]>([]);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    const doctor = doctors.find((doc) =>
+    const matchedDoctors = doctors.filter((doc) =>
       doc.name.toLowerCase().includes(query.toLowerCase())
     );
-    setSearchedDoctor(doctor || null);
+    setSearchedDoctors(matchedDoctors);
   };
 
   return (
     <div className="doctors__page">
       <SearchDoctor onSearch={handleSearch} />
 
-      {!searchQuery && (
+      {searchQuery ? (
+        <div className="search__results">
+          {searchedDoctors.length > 0 ? (
+            searchedDoctors.map((doctor) => (
+              <div className="searched__doctor__card" key={doctor.id}>
+                <img src={doctor.image} alt={doctor.name} />
+                <div className="searched__doctor__info">
+                  <h4>{doctor.name}</h4>
+                  <p>{doctor.specialty}</p>
+                </div>
+                <Link to="#" className="profile__button">
+                  See Profile
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p>No doctors found with the name "{searchQuery}".</p>
+          )}
+        </div>
+      ) : (
         <>
           <FeaturedDoctors />
           <AllDoctors />
         </>
-      )}
-
-      {searchQuery && (
-        <div className="search__result">
-          {searchedDoctor ? (
-            <div className="searched__doctor__card">
-              <img src={searchedDoctor.image} alt={searchedDoctor.name} />
-              <div className="searched__doctor__info">
-                <h4>{searchedDoctor.name}</h4>
-                <p>{searchedDoctor.specialty}</p>
-              </div>
-              <Link
-                to='#'
-                className="profile__button"
-              >
-                See Profile
-              </Link>
-            </div>
-          ) : (
-            <p>No doctor found with the name "{searchQuery}".</p>
-          )}
-        </div>
       )}
     </div>
   );
