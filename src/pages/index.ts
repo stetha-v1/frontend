@@ -7,3 +7,4 @@ export {
   AppointmentsResheduledPage,
   AppointmentsCancelledPage,
 } from "./appointments";
+export { DoctorsPage } from "./doctor";

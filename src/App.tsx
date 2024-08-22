@@ -15,6 +15,7 @@ import {
   AppointmentsCancelledPage,
   AppointmentsResheduledPage,
   AppointmentsUpcomingPage,
+  DoctorsPage
 } from "./pages";
 import { RootDashBoardLayout, AppointmentsPageLayout } from "./layouts";
 import { PageNotFound } from "./components";
@@ -29,6 +30,7 @@ const routes = createBrowserRouter(
           <Route path="cancelled" element={<AppointmentsCancelledPage />} />
           <Route path="reschedule" element={<AppointmentsResheduledPage />} />
         </Route>
+        <Route path="doctors" element={<DoctorsPage />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
       <Route path="/auth/login" element={<LoginPage />} action={LoginAction} />

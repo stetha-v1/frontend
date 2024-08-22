@@ -1,5 +1,7 @@
-.dashboard__layout{
-    display: grid;
-    grid-template-columns: .2fr 1fr;
-    gap: 1em;
+.dashboard__layout {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  .rootDash__layout__outlet {
+    margin: 0 .9em;
+  }
 }
