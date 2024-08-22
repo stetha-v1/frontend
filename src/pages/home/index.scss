@@ -1,3 +1,58 @@
 .home__page {
-  padding: .5em;
+  padding: 0.5em;
+  margin-top: 2em;
+
+  h1 {
+    margin-bottom: .8em;
+  }
+  .home__page__container {
+    display: flex;
+    gap: 1em;
+
+    .appointments-list {
+      flex: 0.4;
+      padding: 1.5em;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 0.6em;
+      height: 90vh;
+      top: 3%;
+      position: sticky;
+      overflow: hidden;
+      overflow-y: scroll;
+      backdrop-filter: blur(16px) saturate(180%);
+      .treatments-title {
+        color: gray;
+        margin-bottom: 0.9em;
+      }
+    }
+
+    .home-doctors {
+      flex: 1;
+      padding: 0.5em;
+      margin-bottom: 1em;
+      position: relative;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 0.6em;
+      height: fit-content;
+
+      img {
+        height: 10vh;
+        border-radius: 50%;
+      }
+      .home-doctors-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .home-doctors-header h4 {
+        color: gray;
+      }
+
+      .home-doctors-header a {
+        text-decoration: none;
+        color: #2d9bf0;
+        font-weight: 600;
+      }
+    }
+  }
 }

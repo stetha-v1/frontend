@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {
-  /* HomePage, */
+  HomePage,
   LoginPage,
   LoginAction,
   RegisterPage,
@@ -24,6 +24,7 @@ const routes = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootDashBoardLayout />}>
+       <Route index element={<HomePage />} />
         <Route path="appointments" element={<AppointmentsPageLayout />}>
           <Route index element={<AppointmentsUpcomingPage />} />
           <Route path="past" element={<AppointmentsPastPage />} />

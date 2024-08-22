@@ -5,10 +5,16 @@ import logo from "../../assets/images/logo.png";
 import { FaCalendarCheck, FaUserDoctor, FaHeart } from "react-icons/fa6";
 import { GiMedicines, GiHealthNormal } from "react-icons/gi";
 import { IoIosPeople } from "react-icons/io";
-import { MdAddAlert, MdHelp, MdFeedback } from "react-icons/md";
+import { MdAddAlert, MdHelp, MdFeedback, MdDashboard } from "react-icons/md";
 import { IoPersonSharp } from "react-icons/io5";
 
 const top_navigations: ISideNavigations[] = [
+  {
+    id: 0,
+    text: "Dashboard",
+    path: "/",
+    icon: <MdDashboard className="nav__icon" />,
+  },
   {
     id: 1,
     text: "Appointments",
