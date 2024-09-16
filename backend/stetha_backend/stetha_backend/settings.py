@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kwyzq8)1&)tcrp@@0oz%7s8#bcj@b-(*se1(%82jgow_5oxi_6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # additional fields
 AUTH_USER_MODEL = 'accounts.User'
@@ -98,6 +98,14 @@ WSGI_APPLICATION = 'stetha_backend.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # This will create a SQLite database file in your project directory
+    }
+}
+
+
+""" DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'stetha',
         'USER': 'stetha',  # Replace with your MySQL user
@@ -106,7 +114,7 @@ DATABASES = {
         'PORT': '3306',  # Default MySQL port
     }
 }
-
+ """
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 

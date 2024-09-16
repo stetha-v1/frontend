@@ -1,12 +1,7 @@
 import React from "react";
 import "./index.scss";
+import { Doctor } from "../../../../typpes";
 
-interface Doctor {
-  id: number;
-  name: string;
-  image: string;
-  profileLink: string;
-}
 
 const doctors: Doctor[] = [
   {

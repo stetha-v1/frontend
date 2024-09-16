@@ -6,5 +6,8 @@ export {
   AppointmentsPastPage,
   AppointmentsResheduledPage,
   AppointmentsCancelledPage,
+  SingleAppointmentPage
 } from "./appointments";
 export { DoctorsPage } from "./doctor";
+export { SingleDoctorPage } from "./doctor/single-doc";
+export { ChatAI } from "./chat-ai";

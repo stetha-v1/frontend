@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import "./index.scss";
+import { Link } from "react-router-dom";
 
 interface TableData {
   date: string;
@@ -33,19 +34,25 @@ export const TableComponent: React.FC<TableComponentProps> = ({
       </thead>
       <tbody>
         {data.map((row, index) => (
-          <tr key={index}>
-            <td>{row.date}</td>
-            <td>{row.time}</td>
-            <td>{row.doctor}</td>
-            <td>{row.location}</td>
-            <td className="actions">
-              <FaEdit className="icon edit" onClick={() => onEdit(index)} />
-              <FaTrashAlt
-                className="icon delete"
-                onClick={() => onDelete(index)}
-              />
-            </td>
-          </tr>
+          
+            <tr key={index}>
+              
+              <td>{row.date}</td>
+              <td>{row.time}</td>
+              <td>{row.doctor}</td>
+              <td>{row.location}</td>
+              
+              <td className="actions">
+                <FaEdit className="icon edit" onClick={() => onEdit(index)} />
+                <FaTrashAlt
+                  className="icon delete"
+                  onClick={() => onDelete(index)}
+                />
+                <Link to={`/appointments/${index}`}>View</Link>
+              </td>
+              
+            </tr>
+          
         ))}
       </tbody>
     </table>

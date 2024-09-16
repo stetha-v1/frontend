@@ -4,3 +4,4 @@ export { Input } from "./ui/input";
 export { SideNavigations } from "./side-nav";
 export { PageNotFound } from "./page-not-found";
 export { TableComponent } from "./tables";
+export { Header } from "./header";
