@@ -1,0 +1,111 @@
+.chat__container {
+  max-width: 1000px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  height: 70vh;
+  overflow-y: scroll;
+  gap: 15px; /* Space between messages */
+}
+
+.message {
+  width: fit-content;
+  display: flex;
+  align-items: flex-end;
+  max-width: 75%;
+  position: relative;
+  padding: 10px;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  word-wrap: break-word;
+
+  .sender-name {
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: gray;
+  }
+
+  .text-content {
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+  }
+}
+
+.user {
+  background-color: #7a2afd;
+  color: white;
+  margin-left: auto; /* Align user message to the right */
+  border-radius: 12px 0 12px 12px;
+
+  .avatar {
+    right: -50px; /* Position user image on the right */
+    margin-left: 10px;
+  }
+
+  .text-content {
+    margin-right: 50px; /* Create space for avatar on the right */
+  }
+}
+
+.ai {
+  background-color: #eeeff1;
+  color: black;
+  margin-right: auto; /* Align AI message to the left */
+  border-radius: 0 12px 12px 12px;
+
+  .avatar {
+    left: -50px; /* Position AI image on the left */
+    margin-right: 10px;
+  }
+
+  .text-content {
+    margin-left: 50px; /* Create space for avatar on the left */
+  }
+}
+
+.input__container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #eeeff1;
+  border-radius: 10px;
+  position: fixed; /* Fixes the input at the bottom */
+  bottom: 0; /* Aligns it to the bottom of the viewport */
+  width: 100%; /* Full width */
+  max-width: 1000px; /* Restricts width to match the chat container */
+  margin: 1em auto; /* Centers the input container */
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.send-button {
+  padding: 8px 16px;
+  background-color: #7a2afd;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #6828d1;
+  }
+}
