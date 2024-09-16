@@ -1,14 +1,16 @@
 .chat__container {
   max-width: 1000px;
-  margin: 2em auto;
+  margin: 1em auto;
   display: flex;
   flex-direction: column;
 }
 
 .messages {
+  display: grid;
+  padding: 1em;
   height: 70vh;
   overflow-y: scroll;
-  gap: 15px; /* Space between messages */
+  gap: 3em; /* Space between messages */
 }
 
 .message {
@@ -19,7 +21,6 @@
   position: relative;
   padding: 10px;
   border-radius: 12px;
-  font-family: Arial, sans-serif;
   word-wrap: break-word;
 
   .sender-name {
@@ -48,15 +49,6 @@
   color: white;
   margin-left: auto; /* Align user message to the right */
   border-radius: 12px 0 12px 12px;
-
-  .avatar {
-    right: -50px; /* Position user image on the right */
-    margin-left: 10px;
-  }
-
-  .text-content {
-    margin-right: 50px; /* Create space for avatar on the right */
-  }
 }
 
 .ai {
@@ -64,15 +56,6 @@
   color: black;
   margin-right: auto; /* Align AI message to the left */
   border-radius: 0 12px 12px 12px;
-
-  .avatar {
-    left: -50px; /* Position AI image on the left */
-    margin-right: 10px;
-  }
-
-  .text-content {
-    margin-left: 50px; /* Create space for avatar on the left */
-  }
 }
 
 .input__container {
@@ -86,6 +69,11 @@
   width: 100%; /* Full width */
   max-width: 1000px; /* Restricts width to match the chat container */
   margin: 1em auto; /* Centers the input container */
+
+  img {
+    height: 6vh;
+    border-radius: 50%;
+  }
 }
 
 .input-field {

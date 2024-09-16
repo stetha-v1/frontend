@@ -30,7 +30,7 @@ export const ChatAI: React.FC = () => {
       setTimeout(() => {
         setMessages((prevMessages) => [
           ...prevMessages,
-          { sender: "ai", text: `AI reply to "${userMessage}"` },
+          { sender: "ai", text: userMessage },
         ]);
       }, 1000); // AI response delay
     }
@@ -50,28 +50,32 @@ export const ChatAI: React.FC = () => {
             key={index}
             className={`message ${message.sender === "user" ? "user" : "ai"}`}
           >
-            {message.sender === "user" ? (
-              <>
-                <div className="text-content">
-                  <p>{message.text}</p>
-                </div>
-
-              </>
-            ) : (
-              <>
-                
-                <div className="text-content">
-                  <p className="sender-name">AI Bot</p>
-                  <p>{message.text}</p>
-                </div>
-              </>
-            )}
+            <div className="message">
+              {message.sender === "user" ? (
+                <>
+                  <div className="text-content">
+                    <p>{message.text}</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-content">
+                    <p>{message.text}</p>
+                  </div>
+                </>
+              )}
+            </div>
+            <img src="profile" alt="" />
           </div>
         ))}
         <div />
       </div>
 
       <div className="input__container">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzVU17NQvjEPTXlVZJtdrG5o3VBkz6DQgV9Q&s"
+          alt="photo"
+        />
         <input
           type="text"
           placeholder="Type your message here"
