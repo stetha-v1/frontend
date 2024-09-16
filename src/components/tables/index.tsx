@@ -48,7 +48,7 @@ export const TableComponent: React.FC<TableComponentProps> = ({
                   className="icon delete"
                   onClick={() => onDelete(index)}
                 />
-                <Link to={`/appointments/${index}`}>View</Link>
+                <Link className="view__appointment" to={`/appointments/${index}`}>View</Link>
               </td>
               
             </tr>
