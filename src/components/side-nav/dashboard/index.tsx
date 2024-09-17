@@ -1,7 +1,7 @@
 import "./index.scss";
 import { NavLink } from "react-router-dom";
-import { ISideNavigations } from "../../typpes";
-import logo from "../../assets/images/logo.png";
+import { ISideNavigations } from "../../../typpes";
+import logo from "../../../assets/images/logo.png";
 import { FaCalendarCheck, FaUserDoctor, FaHeart } from "react-icons/fa6";
 import { GiMedicines, GiHealthNormal } from "react-icons/gi";
 import { IoIosPeople } from "react-icons/io";
@@ -80,7 +80,7 @@ const bottom_navigations: ISideNavigations[] = [
   },
 ];
 
-export const SideNavigations = () => {
+export const DashboardSideBarNavigations = () => {
   return (
     <div className="side__navigations__container">
       <div className="top__navs">

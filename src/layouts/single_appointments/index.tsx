@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../components";
 import { IHeader } from "../../typpes";
 import { FaCircleQuestion } from "react-icons/fa6";
+import { SingleAppointmentsPageSideBar } from "../../components/side-nav";
 
 const headerData: IHeader = {
   company_name: "Stetha",
@@ -26,10 +27,10 @@ const headerData: IHeader = {
       },
     ],
     navigations_icons: [
-       {
-        icon : <FaCircleQuestion className="header__icon" />,
-        image : null,
-        path : '/help'
+      {
+        icon: <FaCircleQuestion className="header__icon" />,
+        image: null,
+        path: "/help",
       },
       {
         icon: null,
@@ -37,19 +38,23 @@ const headerData: IHeader = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzVU17NQvjEPTXlVZJtdrG5o3VBkz6DQgV9Q&s",
         path: "/home",
       },
-     
     ],
   },
 };
 
 export const SingleAppointmentsLayout = () => {
   return (
-    <div>
+    <>
       <Header
         company_name={headerData.company_name}
         right_data={headerData.right_data}
       />
-      <Outlet />
-    </div>
+      <div className="single__appointment__page">
+        <SingleAppointmentsPageSideBar />
+        <div className="single__appointment__outlet">
+          <Outlet />
+        </div>
+      </div>
+    </>
   );
 };

@@ -1,0 +1,55 @@
+.single__appointments__sidebar {
+  display: grid;
+  gap: 2em;
+  flex: 0.2;
+
+  .doctor__image__container {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+
+    img {
+      height: 9vh;
+      border-radius: 50%;
+    }
+
+    .sa__doc__info {
+      h4 {
+        font-weight: bolder;
+        color: #363636;
+      }
+      small {
+        font-size: 0.8em;
+        color: #929597;
+      }
+    }
+  }
+
+  .sa__navigations {
+    display: grid;
+    gap: 0.6em;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eeeff1;
+        padding: .6em;
+        border-radius: 12px;
+
+        .sa__nav__icons{
+            font-size: 1.1rem;
+        }
+      }
+      p{
+        font-size: .75em;
+        font-weight: bold;
+        color: #656565;
+      }
+    }
+  }
+}
