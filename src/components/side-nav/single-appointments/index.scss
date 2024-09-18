@@ -2,6 +2,8 @@
   display: grid;
   gap: 2em;
   flex: 0.2;
+  height: fit-content;
+  margin-top: 2em;
 
   .doctor__image__container {
     display: flex;

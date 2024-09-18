@@ -5,3 +5,6 @@ export { DashboardSideBarNavigations } from "./side-nav";
 export { PageNotFound } from "./page-not-found";
 export { TableComponent } from "./tables";
 export { Header } from "./header";
+export { AppointmentBooking } from "./appointments";
+export { AppointmentChatWithDoctor } from "./appointments";
+export { DoctorProfile } from "./doc-profile";

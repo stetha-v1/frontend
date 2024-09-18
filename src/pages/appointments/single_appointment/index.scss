@@ -1,6 +1,12 @@
 .sa__page {
   margin: 0 1em;
+  display: flex;
+  gap: 1em;
   h1{
     font-weight: bolder;
+  }
+  .book__appointment{
+    margin-top: 2em;
+    flex: 1;
   }
 }
