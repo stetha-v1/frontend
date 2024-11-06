@@ -141,8 +141,8 @@ const UserDashboard = () => {
   }, []);
 
   const sidebarLinks = [
-    { icon: Activity, text: "Dashboard", path: "/" },
-    { icon: Calendar, text: "Appointments", path: "/appointments" },
+    { icon: Activity, text: "Dashboard", path: "/me" },
+    { icon: Calendar, text: "Appointments", path: "/me/appointments" },
     { icon: Users, text: "Doctors", path: "/doctors" },
     { icon: MessageSquare, text: "Messages", path: "/messages" },
     { icon: FileText, text: "Medical Records", path: "/records" },
@@ -331,13 +331,7 @@ const UserDashboard = () => {
 </div>
 
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard icon={Activity} title="Heart Rate" value="72 bpm" trend={5} />
-            <StatCard icon={Clock} title="Sleep" value="7.3 hrs" trend={-2} />
-            <StatCard icon={Heart} title="Blood Pressure" value="120/80" trend={3} />
-            <StatCard icon={Activity} title="Steps" value="8,234" trend={12} />
-          </div>
+          
 
           {/* Quick Actions */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -367,6 +361,13 @@ const UserDashboard = () => {
     </button>
   ))}
 </div>
+{/* Stats Grid */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCard icon={Activity} title="Heart Rate" value="72 bpm" trend={5} />
+            <StatCard icon={Clock} title="Sleep" value="7.3 hrs" trend={-2} />
+            <StatCard icon={Heart} title="Blood Pressure" value="120/80" trend={3} />
+            <StatCard icon={Activity} title="Steps" value="8,234" trend={12} />
+          </div>
 
 
           {/* Recent Activities */}
