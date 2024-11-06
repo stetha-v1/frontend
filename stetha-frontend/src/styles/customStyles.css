@@ -1,0 +1,53 @@
+/* src/styles/customStyles.css */
+.stetha-login-container {
+    background: #f7f9fc;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  .stetha-logo {
+    margin-bottom: 1.5rem;
+  }
+  
+  .stetha-input {
+    transition: all 0.3s ease;
+  }
+  
+  .stetha-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+  
+  .stetha-button {
+    transition: all 0.3s ease;
+  }
+  
+  .stetha-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .stetha-social-button {
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .stetha-social-button:hover {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+  }
+  
+  .stetha-footer {
+    color: #6b7280;
+  }
+  
+  .stetha-footer a {
+    color: #3b82f6;
+    text-decoration: underline;
+  }
+  
+  .stetha-footer a:hover {
+    color: #2563eb;
+  }
+  
