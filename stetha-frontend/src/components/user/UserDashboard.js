@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ShoppingBag, Calendar, Users, MessageSquare, 
-  Zap, Crown, LogOut, Menu, User, Bell, Search,
-  Activity, Heart, Clock, ChevronRight, Star,
-  X, Settings, Book, ScrollText, Stethoscope, 
-  PlusCircle, Tv, ClipboardList, Pill as PillIcon,
+  Crown, LogOut, Menu, User, Bell, Search,
+  Activity, Heart, Clock, ChevronRight,
+  X, Settings, Tv, ClipboardList, Pill as PillIcon,
   Brain as BrainIcon, UserCheck, FileText,
   ChevronDown
 } from 'lucide-react';
@@ -231,46 +230,56 @@ const UserDashboard = () => {
             </div>
 
             <div className="flex items-center space-x-6">
-              <div className="relative">
-                <button 
-                  className="relative"
-                  onClick={() => {
-                    setIsNotificationOpen(!isNotificationOpen);
-                    setIsDropdownOpen(false);
-                  }}
-                >
-                  <Bell className="w-6 h-6 text-gray-600" />
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 rounded-full text-white text-xs flex items-center justify-center">
-                    3
-                  </span>
-                </button>
-                <NotificationDropdown 
-                  isOpen={isNotificationOpen}
-                  onClose={() => setIsNotificationOpen(false)}
-                />
-              </div>
-              <div className="relative">
-                <button 
-                  className="flex items-center space-x-3"
-                  onClick={() => {
-                    setIsDropdownOpen(!isDropdownOpen);
-                    setIsNotificationOpen(false);
-                  }}
-                >
-                  <img
-                    src="/assets/davy.jpg"
-                    alt="Profile"
-                    className="w-8 h-8 rounded-full border-2 border-blue-500"
-                  />
-                  <span className="hidden md:block font-medium">David NJoroge</span>
-                  <ChevronDown className="w-4 h-4 text-gray-600" />
-                </button>
-                <ProfileDropdown 
-                  isOpen={isDropdownOpen}
-                  onClose={() => setIsDropdownOpen(false)}
-                />
-              </div>
-            </div>
+  {/* Notification Button */}
+  <div className="relative">
+    <button
+      className="relative"
+      onClick={() => {
+        setIsNotificationOpen(!isNotificationOpen);
+        setIsDropdownOpen(false);
+      }}
+    >
+      <Bell className="w-6 h-6 text-gray-600" />
+      <span className="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 rounded-full text-white text-xs flex items-center justify-center">
+        3
+      </span>
+    </button>
+
+    {/* Notification Dropdown with smooth transition */}
+    <NotificationDropdown 
+      isOpen={isNotificationOpen}
+      onClose={() => setIsNotificationOpen(false)}
+      className={`absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 transition-all duration-300 ease-in-out transform ${isNotificationOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+    />
+  </div>
+
+  {/* Profile Dropdown */}
+  <div className="relative">
+    <button
+      className="flex items-center space-x-3"
+      onClick={() => {
+        setIsDropdownOpen(!isDropdownOpen);
+        setIsNotificationOpen(false);
+      }}
+    >
+      <img
+        src="/assets/davy.jpg"
+        alt="Profile"
+        className="w-8 h-8 rounded-full border-2 border-blue-500"
+      />
+      <span className="hidden md:block font-medium">David NJoroge</span>
+      <ChevronDown className="w-4 h-4 text-gray-600" />
+    </button>
+
+    {/* Profile Dropdown with smooth transition */}
+    <ProfileDropdown
+      isOpen={isDropdownOpen}
+      onClose={() => setIsDropdownOpen(false)}
+      className={`absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg p-4 transition-all duration-300 ease-in-out transform ${isDropdownOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+    />
+  </div>
+</div>
+
           </div>
         </header>
 
