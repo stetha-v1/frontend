@@ -5,9 +5,3 @@
 body {
   @apply bg-gray-100;
 }
-
-@media (max-width: 640px) {
-  .md\:hidden {
-    display: none;
-  }
-}
