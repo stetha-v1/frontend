@@ -6,7 +6,8 @@ import {
   Activity, Heart, Clock, ChevronRight,
   X, Settings, Tv, ClipboardList, Pill as PillIcon,
   Brain as BrainIcon, UserCheck, FileText,
-  ChevronDown
+  ChevronDown,
+  BotIcon
 } from 'lucide-react';
 
 // Enhanced StatCard with glassmorphism
@@ -148,7 +149,7 @@ const UserDashboard = () => {
     { icon: FileText, text: "Medical Records", path: "/records" },
     { icon: PillIcon, text: "Medications", path: "/medications" },
     { icon: ShoppingBag, text: "Health Store", path: "/store" },
-    { icon: BrainIcon, text: "Mental Health", path: "/mental-health" }
+    { icon: BotIcon, text: "Stetha AI", path: "/mental-health" }
   ];
 
   return (
@@ -337,7 +338,7 @@ const UserDashboard = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
   {[
     { title: 'Book Appointment', icon: Calendar },
-    { title: 'Video Consultation', icon: Tv },
+    { title: 'Tele-Consultation', icon: Tv },
     { title: 'Lab Tests', icon: ClipboardList },
     { title: 'Order Medicine', icon: PillIcon }
   ].map((action) => (
