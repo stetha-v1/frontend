@@ -1,36 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UserLogin from './pages/user/UserLogin';
-import UserSignup from './pages/user/UserSignup';
-import DoctorLogin from './pages/doctor/DoctorLogin';
-import DoctorSignup from './pages/doctor/DoctorSignup';
-import DoctorOnboarding from './pages/doctor/DoctorOnboarding';
-import UserDashboard from './components/user/UserDashboard';
-import DoctorDashboard from './components/doctor/DoctorDashboard';
-import UserAppointment from './components/user/UserAppointment';
-import UserProfile from './components/user/UserProfile';
-import UserSettings from './components/user/UserSettings';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import UserLogin from './pages/user/Login';
+import UserSignUp from './pages/user/SignUp';
+import UserDashboard from './pages/user/Dashboard';
+import DoctorLogin from './pages/doctor/Login';
+import DoctorSignUp from './pages/doctor/SignUp';
+import DoctorDashboard from './pages/doctor/Dashboard';
 
-
-const App = () => {
+function App() {
   return (
     <Router>
-      
       <Routes>
-        <Route path="/user/login" element={<UserLogin />} />
-        <Route path="/user/signup" element={<UserSignup />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/me/login" element={<UserLogin />} />
+        <Route path="/me/signup" element={<UserSignUp />} />
+        <Route path="/me/*" element={<UserDashboard />} />
         <Route path="/doc/login" element={<DoctorLogin />} />
-        <Route path="/doc/signup" element={<DoctorSignup />} />
-        <Route path="/doc/onboarding" element={<DoctorOnboarding />} />
-        <Route path="/me" element={<UserDashboard />} />
-        <Route path="/doc/dashboard" element={<DoctorDashboard />} />
-        <Route path="/me/appointments" element={<UserAppointment />} />
-        <Route path="/me/profile" element={<UserProfile />} />
-        <Route path="/me/settings" element={<UserSettings />} />
+        <Route path="/doc/signup" element={<DoctorSignUp />} />
+        <Route path="/doc/*" element={<DoctorDashboard />} />
       </Routes>
-     
     </Router>
   );
-};
+}
 
 export default App;
