@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Search, Bell, User, Menu } from 'lucide-react';
+import { Search, Bell, Menu } from 'lucide-react';
 import { Popover } from '@headlessui/react';
 
-const Header = ({ toggleSidebar }) => {
+
+function Header({ toggleSidebar }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
@@ -45,11 +46,15 @@ const Header = ({ toggleSidebar }) => {
             <Popover className="relative ml-4">
               <Popover.Button className="bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 <span className="sr-only">Open user menu</span>
-                <User className="h-8 w-8 rounded-full" aria-hidden="true" />
+                <img
+                  src="/placeholder.svg?height=40&width=40"
+                  alt="Profile"
+                  className="h-10 w-10 rounded-full border-2 border-[#00B4D8]"
+                />
               </Popover.Button>
               <Popover.Panel className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="px-4 py-2 text-sm text-gray-700">
-                  <p className="font-medium">John Doe</p>
+                  <p className="font-medium">David Njoroge</p>
                   <p className="text-xs text-gray-500">ID: 12345</p>
                 </div>
                 <a
@@ -77,6 +82,6 @@ const Header = ({ toggleSidebar }) => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;
