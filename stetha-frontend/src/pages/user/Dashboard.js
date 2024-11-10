@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { User2, Shield, Stethoscope, Camera, Calendar, Globe, Paperclip } from 'lucide-react';
+import { User2, Shield, Stethoscope, Camera, Calendar, Globe, Paperclip, Video, MessageCircle, FileText, Heart, Activity, Weight, Bell } from 'lucide-react';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
+import { Routes, Route, Link } from 'react-router-dom';
+import Messages from './Message';
+import Doctors from './Doctors';
+import Appointments from './Appointment';
+import Shop from './Shop';
+import EarlyAccess from './EarlyAccess';
+import AI from './AI';
+import Settings from './Settings';
+import Premium from './Premium';
 
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -24,10 +33,10 @@ function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-[#F0F4F8]">
       {/* Sidebar */}
       <aside 
-        className={`fixed md:static inset-y-0 left-0 z-30 w-64 transform bg-white transition-transform duration-300 ease-in-out ${
+        className={`fixed md:static inset-y-0 left-0 z-30 w-64 transform bg-white shadow-lg transition-transform duration-300 ease-in-out ${
           sidebarOpen || !isMobile ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0`}
       >
@@ -40,92 +49,18 @@ function Dashboard() {
         <Header toggleSidebar={toggleSidebar} />
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-4">
-          <div className="space-y-6">
-            {/* Search */}
-            <div className="relative">
-  <input
-    type="text"
-    placeholder="Search"
-    className="w-full rounded-xl bg-white py-3 pl-10 pr-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
-  />
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-    />
-  </svg>
-</div>
-
-            {/* Services */}
-            <section>
-              <h2 className="mb-4 text-xl font-bold">Services for you</h2>
-              <div className="grid grid-cols-4 gap-4">
-                <ServiceButton icon={<User2 />} label="Doctors" href="/doctors" />
-                <ServiceButton icon={<svg viewBox="0 0 24 24" className="h-6 w-6 text-[#00B4D8]">
-                  <path 
-                    fill="currentColor" 
-                    d="M12 2a4 4 0 014 4v2h1a3 3 0 013 3v7a3 3 0 01-3 3H7a3 3 0 01-3-3v-7a3 3 0 013-3h1V6a4 4 0 014-4zm0 2a2 2 0 00-2 2v2h4V6a2 2 0 00-2-2z"
-                  />
-                </svg>} label="Dental" href="/dental" />
-                <ServiceButton icon={<Shield />} label="Insurance" href="/insurance" />
-                <ServiceButton icon={<Stethoscope />} label="Labs" href="/labs" />
-              </div>
-            </section>
-
-            {/* Promo */}
-            <section>
-              <div className="relative overflow-hidden rounded-2xl bg-[#F0F3F7] p-6">
-                <div className="relative z-10">
-                  <h3 className="mb-2 text-2xl font-bold text-[#334257]">Get the Best Medical services</h3>
-                  <p className="text-sm text-[#516475]">at stetha we prioritize your health the most</p>
-                </div>
-                <img
-                  src="/assets/photo.jpeg"
-                  alt="Medical Service"
-                  className="absolute bottom-0 right-0 h-24 w-24 object-cover opacity-50"
-                />
-              </div>
-            </section>
-
-            {/* Quick Access */}
-            <section>
-              <h2 className="mb-4 text-xl font-bold text-[#334257]">Quick Access</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <QuickAccessCard icon={<Camera />} label="Teleconsultation" href="/teleconsultation" />
-                <QuickAccessCard icon={<Calendar />} label="Appointments" href="/appointments" />
-                <QuickAccessCard icon={<Globe />} label="Pharmacy" href="/pharmacy" />
-                <QuickAccessCard icon={<Paperclip />} label="Reports" href="/reports" />
-              </div>
-            </section>
-
-            {/* Upcoming Appointments */}
-            <section>
-              <h2 className="mb-4 text-xl font-bold text-[#334257]">Upcoming Appointments</h2>
-              <div className="space-y-4">
-                <AppointmentCard
-                  image="/placeholder.svg?height=50&width=50"
-                  time="10:00 AM"
-                  doctor="Dr Mahindra"
-                  isActive={true}
-                />
-                <AppointmentCard
-                  image="/placeholder.svg?height=50&width=50"
-                  time="2:00 PM"
-                  doctor="Dr. Sharma"
-                  isActive={false}
-                />
-              </div>
-            </section>
-          </div>
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-[#F0F4F8] p-6">
+          <Routes>
+            <Route index element={<DashboardHome />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="doctors" element={<Doctors />} />
+            <Route path="appointments" element={<Appointments />} />
+            <Route path="health-products" element={<Shop />} />
+            <Route path="early-access" element={<EarlyAccess />} />
+            <Route path="ai" element={<AI />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="upgrade" element={<Premium />} />
+          </Routes>
         </main>
 
         {/* Footer */}
@@ -143,16 +78,29 @@ function Dashboard() {
   );
 }
 
-function ServiceButton({ icon, label, href }) {
+function QuickActionCard({ icon, label, href }) {
   return (
-    <a href={href} className="flex flex-col items-center gap-2 rounded-xl bg-white p-4 transition-colors hover:bg-gray-200">
-      {icon}
-      <span className="text-xs">{label}</span>
-    </a>
+    <Link to={href} className="flex flex-col items-center justify-center gap-2 rounded-xl bg-white p-4 shadow-sm transition-all hover:shadow-md hover:bg-blue-50">
+      <div className="rounded-full bg-[#E6F3F8] p-3">
+        {React.cloneElement(icon, { className: "h-6 w-6 text-[#0077B6]" })}
+      </div>
+      <span className="text-sm font-medium text-gray-700 text-center">{label}</span>
+    </Link>
   );
 }
 
-function AppointmentCard({ image, time, doctor, isActive }) {
+function ServiceButton({ icon, label, href }) {
+  return (
+    <Link to={href} className="flex flex-col items-center gap-2 rounded-xl bg-white p-4 transition-colors hover:bg-gray-100 shadow-sm">
+      <div className="rounded-full bg-[#E6F3F8] p-3">
+        {React.cloneElement(icon, { className: "h-6 w-6 text-[#0077B6]" })}
+      </div>
+      <span className="text-sm font-medium">{label}</span>
+    </Link>
+  );
+}
+
+function AppointmentCard({ image, time, doctor, specialty, isVideo }) {
   return (
     <div className="flex items-center justify-between rounded-xl bg-white p-4 shadow">
       <div className="flex items-center gap-4">
@@ -160,21 +108,151 @@ function AppointmentCard({ image, time, doctor, isActive }) {
         <div>
           <p className="font-medium text-gray-900">{time}</p>
           <p className="text-sm text-gray-600">{doctor}</p>
+          <p className="text-xs text-gray-500">{specialty}</p>
         </div>
       </div>
-      {isActive && (
-        <div className="h-3 w-3 rounded-full bg-green-500"></div>
+      {isVideo ? (
+        <Video className="h-5 w-5 text-[#0077B6]" />
+      ) : (
+        <Bell className="h-5 w-5 text-[#0077B6]" />
       )}
     </div>
   );
 }
 
-function QuickAccessCard({ icon, label, href }) {
+function HealthMetricCard({ icon, label, value, change }) {
+  const isPositive = change.startsWith('+');
   return (
-    <a href={href} className="flex items-center gap-3 rounded-xl bg-white p-4 transition-colors hover:bg-gray-200 shadow">
-      {icon}
-      <span className="flex-1 text-sm font-medium text-[#334257]">{label}</span>
-    </a>
+    <div className="rounded-xl bg-white p-4 shadow">
+      <div className="flex items-center justify-between mb-2">
+        {React.cloneElement(icon, { className: "h-6 w-6 text-[#0077B6]" })}
+        <span className={`text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+          {change}
+        </span>
+      </div>
+      <h3 className="text-lg font-semibold text-gray-700">{value}</h3>
+      <p className="text-sm text-gray-500">{label}</p>
+    </div>
+  );
+}
+
+function HealthTipCard({ title, description, image }) {
+  return (
+    <div className="rounded-xl bg-white overflow-hidden shadow">
+      <img src={image} alt={title} className="w-full h-40 object-cover" />
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+        <p className="text-sm text-gray-600">{description}</p>
+        <a href="#" className="inline-block mt-2 text-[#0077B6] hover:underline">Read More</a>
+      </div>
+    </div>
+  );
+}
+
+function DashboardHome() {
+  return (
+    <div className="space-y-6">
+      {/* Welcome Section */}
+      <section>
+        <div className="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white rounded-xl p-6">
+          <h2 className="text-2xl font-bold mb-2">Welcome back, David!</h2>
+          <p className="text-blue-100">Your health is our priority. How can we help you today?</p>
+        </div>
+      </section>
+
+      {/* Search */}
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Search for doctors, services, or health information"
+          className="w-full rounded-full bg-white py-3 pl-10 pr-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0077B6] shadow-sm"
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      </div>
+
+      {/* Quick Actions */}
+      <section>
+        <h2 className="mb-4 text-xl font-bold text-gray-800">Quick Actions</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <QuickActionCard icon={<Video />} label="Start Video Call" href="/video-call" />
+          <QuickActionCard icon={<Calendar />} label="Schedule Appointment" href="/schedule" />
+          <QuickActionCard icon={<MessageCircle />} label="Message Doctor" href="/messages" />
+          <QuickActionCard icon={<FileText />} label="View Health Records" href="/records" />
+        </div>
+      </section>
+
+      {/* Services */}
+      <section>
+        <h2 className="mb-4 text-xl font-bold text-gray-800">Our Services</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <ServiceButton icon={<User2 />} label="Find a Doctor" href="/doctors" />
+          <ServiceButton icon={<Stethoscope />} label="Specialties" href="/specialties" />
+          <ServiceButton icon={<Shield />} label="Insurance" href="/insurance" />
+          <ServiceButton icon={<Globe />} label="Pharmacy" href="/pharmacy" />
+        </div>
+      </section>
+
+      {/* Upcoming Appointments */}
+      <section>
+        <h2 className="mb-4 text-xl font-bold text-gray-800">Upcoming Appointments</h2>
+        <div className="space-y-4">
+          <AppointmentCard
+            image="/placeholder.svg?height=50&width=50"
+            time="10:00 AM Today"
+            doctor="Dr. Emily Chen"
+            specialty="Cardiologist"
+            isVideo={true}
+          />
+          <AppointmentCard
+            image="/placeholder.svg?height=50&width=50"
+            time="2:00 PM Tomorrow"
+            doctor="Dr. Michael Patel"
+            specialty="Dermatologist"
+            isVideo={false}
+          />
+        </div>
+      </section>
+
+      {/* Health Metrics */}
+      <section>
+        <h2 className="mb-4 text-xl font-bold text-gray-800">Your Health Metrics</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <HealthMetricCard icon={<Heart />} label="Heart Rate" value="72 bpm" change="+3%" />
+          <HealthMetricCard icon={<Activity />} label="Blood Pressure" value="120/80 mmHg" change="-2%" />
+          <HealthMetricCard icon={<Weight />} label="Weight" value="68 kg" change="0%" />
+        </div>
+      </section>
+
+      {/* Health Tips */}
+      <section>
+        <h2 className="mb-4 text-xl font-bold text-gray-800">Health Tips & Resources</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <HealthTipCard
+            title="5 Ways to Boost Your Immune System"
+            description="Learn simple, effective strategies to strengthen your body's natural defenses."
+            image="/placeholder.svg?height=200&width=400"
+          />
+          <HealthTipCard
+            title="Understanding Telemedicine: Your Questions Answered"
+            description="Discover how virtual healthcare works and its benefits for you."
+            image="/placeholder.svg?height=200&width=400"
+          />
+        </div>
+      </section>
+    </div>
   );
 }
 
