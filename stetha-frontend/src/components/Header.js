@@ -1,82 +1,90 @@
-import React, { useState } from 'react';
-import { Search, Bell, User, Menu } from 'lucide-react';
-import { Popover } from '@headlessui/react';
+import React from 'react';
+import { Bell, Menu, User, Settings, LogOut } from 'lucide-react';
+import { Popover, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
 
-const Header = ({ toggleSidebar }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-
+function Header({ toggleSidebar }) {
   return (
     <header className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+        <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <button
               onClick={toggleSidebar}
-              className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+              className="text-gray-500 hover:text-[#0077B6] focus:outline-none focus:ring-2 focus:ring-[#0077B6] rounded-md md:hidden"
+              aria-label="Toggle sidebar"
             >
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
+            <h1 className="ml-2 text-xl font-bold text-[#0077B6] md:ml-0"></h1>
           </div>
-          <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
-            <div className="max-w-lg w-full lg:max-w-xs">
-              <label htmlFor="search" className="sr-only">
-                Search
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                </div>
-                <input
-                  id="search"
-                  name="search"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="Search"
-                  type="search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <div className="flex items-center space-x-4">
+            <button 
+              className="relative p-2 text-gray-400 hover:text-[#0077B6] focus:outline-none focus:ring-2 focus:ring-[#0077B6] rounded-full"
+              aria-label="Notifications"
+            >
               <Bell className="h-6 w-6" aria-hidden="true" />
+              <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-400 ring-2 ring-white"></span>
             </button>
-            <Popover className="relative ml-4">
-              <Popover.Button className="bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                <span className="sr-only">Open user menu</span>
-                <User className="h-8 w-8 rounded-full" aria-hidden="true" />
-              </Popover.Button>
-              <Popover.Panel className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="px-4 py-2 text-sm text-gray-700">
-                  <p className="font-medium">John Doe</p>
-                  <p className="text-xs text-gray-500">ID: 12345</p>
-                </div>
-                <a
-                  href="#profile"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Profile
-                </a>
-                <a
-                  href="#settings"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Settings
-                </a>
-                <a
-                  href="#account"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Account
-                </a>
-              </Popover.Panel>
+            <Popover className="relative">
+              {({ open }) => (
+                <>
+                  <Popover.Button 
+                    className="flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-[#0077B6] rounded-full"
+                    aria-label="Open user menu"
+                  >
+                    <img
+                      src="/assets/davy.jpg"
+                      alt="User avatar"
+                      className="h-10 w-10 rounded-full border-2 border-[#00B4D8]"
+                    />
+                    <span className="hidden md:flex ml-2 font-medium text-gray-700">David Njoroge</span>
+                  </Popover.Button>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-medium text-gray-700">David Njoroge</p>
+                        <p className="text-xs text-gray-500">ID: 12345</p>
+                      </div>
+                      <a
+                        href="#profile"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center"
+                      >
+                        <User className="h-4 w-4 mr-2 text-[#0077B6]" />
+                        Profile
+                      </a>
+                      <a
+                        href="#settings"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center"
+                      >
+                        <Settings className="h-4 w-4 mr-2 text-[#0077B6]" />
+                        Settings
+                      </a>
+                      <a
+                        href="#logout"
+                        className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-50 flex items-center"
+                      >
+                        <LogOut className="h-4 w-4 mr-2 text-red-600" />
+                        Log out
+                      </a>
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
             </Popover>
           </div>
         </div>
       </div>
     </header>
   );
-};
+}
 
 export default Header;
