@@ -185,7 +185,7 @@ function DashboardHome() {
 
       {/* Quick Actions */}
       <section>
-        <h2 className="mb-4 text-xl font-bold text-gray-800">Quick Actions</h2>
+        <h2 className="mb-4 text-xl bg-pink-50 font-bold text-gray-800">Quick Actions</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <QuickActionCard icon={<Video />} label="Start Video Call" href="/video-call" />
           <QuickActionCard icon={<Calendar />} label="Schedule Appointment" href="/schedule" />
@@ -205,19 +205,19 @@ function DashboardHome() {
         </div>
       </section>
 
-      {/* Upcoming Appointments */}
+      {/* Upcoming Appointments will be reading from the database*/}
       <section>
         <h2 className="mb-4 text-xl font-bold text-gray-800">Upcoming Appointments</h2>
         <div className="space-y-4">
           <AppointmentCard
-            image="/placeholder.svg?height=50&width=50"
+            image="/assets/davy.jpg"
             time="10:00 AM Today"
-            doctor="Dr. Emily Chen"
+            doctor="Dr. David Njoroge"
             specialty="Cardiologist"
             isVideo={true}
           />
           <AppointmentCard
-            image="/placeholder.svg?height=50&width=50"
+            image="/assets/davy.jpg"
             time="2:00 PM Tomorrow"
             doctor="Dr. Michael Patel"
             specialty="Dermatologist"
@@ -243,12 +243,12 @@ function DashboardHome() {
           <HealthTipCard
             title="5 Ways to Boost Your Immune System"
             description="Learn simple, effective strategies to strengthen your body's natural defenses."
-            image="/placeholder.svg?height=200&width=400"
+            image="/assets/images/immunity.jpeg"
           />
           <HealthTipCard
             title="Understanding Telemedicine: Your Questions Answered"
             description="Discover how virtual healthcare works and its benefits for you."
-            image="/placeholder.svg?height=200&width=400"
+            image="/assets/images/medicine.jpeg"
           />
         </div>
       </section>
